@@ -25,7 +25,7 @@ export default function App() {
                 setPokeInfo({
                     name: pokemonName,
                     species: res.data.species.name,
-                    img: res.data.sprites.front_default,
+                    img: res.data.sprites.other.dream_world.front_default,
                     hp: res.data.stats[0].base_stat,
                     attack: res.data.stats[1].base_stat,
                     defence: res.data.stats[2].base_stat,
@@ -57,7 +57,8 @@ export default function App() {
                         <div className="info">
                             <h1>{pokeInfo.name}</h1>
                             <img src={pokeInfo.img}/>
-                            <h3><img src="https://i.imgur.com/Fr9dssX.png" border="0"/> : {pokeInfo.species}</h3>
+                            <h3><img src="https://i.imgur.com/Fr9dssX.png" border="0"/>
+                                : {pokeInfo.species}</h3>
                             <h3><img src="https://i.imgur.com/12t2a44.png" border="0"/>: {pokeInfo.type}</h3>
                             <h3><img src="https://i.imgur.com/MiBfnDx.png" border="0"/>: {pokeInfo.hp}</h3>
                             <h3><img src="https://i.imgur.com/OugaI5a.png" border="0"/>: {pokeInfo.attack}</h3>
