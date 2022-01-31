@@ -1,7 +1,8 @@
 import Axios from 'axios';
 import React, {useState} from 'react';
 import "./app.scss";
-
+// import {Card} from 'react-bootstrap';
+// import {Button} from 'bootstrap';
 export default function App() {
     const [pokemonName,
         setPokemonName] = useState("");
@@ -34,7 +35,18 @@ export default function App() {
 
                 setPokeChoosen(true);
             });
+        // setPokemonName(e.target.value)
     };
+
+    const handleChange = (e) => {
+        setPokemonName(e.target.value);
+        console.log(e.target.value);
+    };
+
+    const toInputLowerCase = e => {
+        e.target.value = ("" + e.target.value).toLowerCase();
+      };
+
 
     return (
 
@@ -43,11 +55,7 @@ export default function App() {
 
                 <img className="title" src="https://i.imgur.com/k4tYktt.png" alt=""/>
                 <img className="pokedex" src="https://bit.ly/3u4iJAe" alt=""/>
-                <input
-                    type="text"
-                    onChange={(e) => {
-                    setPokemonName(e.target.value)
-                }}/>
+                <input type="text" onChange={handleChange} onInput={toInputLowerCase}/>
                 <button onClick={searchPokemon}><img className="search" src="https://i.imgur.com/OR1qVRj.png" alt=""/></button>
             </div>
             <div className="displaySection">
